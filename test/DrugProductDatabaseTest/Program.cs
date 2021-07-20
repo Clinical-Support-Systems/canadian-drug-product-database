@@ -35,11 +35,11 @@ namespace DrugProductDatabaseTest
 
                 var drugProduct = await DrugProductRequest.GetDrugProduct(din: "02313782", cancellationToken: cts.Token).ConfigureAwait(false);
 
-                await Console.Out.WriteLineAsync(await GetJsonAsync(drugProduct));
+                await Console.Out.WriteLineAsync(await GetJsonAsync(drugProduct, ct: cts.Token));
 
                 var drugProduct2 = await DrugProductRequest.GetDrugProduct(drugCode: 11685, cancellationToken: cts.Token).ConfigureAwait(false);
 
-                await Console.Out.WriteLineAsync(await GetJsonAsync(drugProduct2));
+                await Console.Out.WriteLineAsync(await GetJsonAsync(drugProduct2, ct: cts.Token));
 
                 await Console.Out.WriteLineAsync("Done!");
             }
