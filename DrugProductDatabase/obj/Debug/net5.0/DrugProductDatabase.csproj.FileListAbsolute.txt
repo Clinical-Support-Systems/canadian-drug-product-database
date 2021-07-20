@@ -1,0 +1,12 @@
+C:\Users\dball\source\repos\DrugProductDatabase\DrugProductDatabase\bin\Debug\net5.0\DrugProductDatabase.deps.json
+C:\Users\dball\source\repos\DrugProductDatabase\DrugProductDatabase\bin\Debug\net5.0\DrugProductDatabase.dll
+C:\Users\dball\source\repos\DrugProductDatabase\DrugProductDatabase\bin\Debug\net5.0\ref\DrugProductDatabase.dll
+C:\Users\dball\source\repos\DrugProductDatabase\DrugProductDatabase\bin\Debug\net5.0\DrugProductDatabase.pdb
+C:\Users\dball\source\repos\DrugProductDatabase\DrugProductDatabase\obj\Debug\net5.0\DrugProductDatabase.csproj.AssemblyReference.cache
+C:\Users\dball\source\repos\DrugProductDatabase\DrugProductDatabase\obj\Debug\net5.0\DrugProductDatabase.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dball\source\repos\DrugProductDatabase\DrugProductDatabase\obj\Debug\net5.0\DrugProductDatabase.AssemblyInfoInputs.cache
+C:\Users\dball\source\repos\DrugProductDatabase\DrugProductDatabase\obj\Debug\net5.0\DrugProductDatabase.AssemblyInfo.cs
+C:\Users\dball\source\repos\DrugProductDatabase\DrugProductDatabase\obj\Debug\net5.0\DrugProductDatabase.csproj.CoreCompileInputs.cache
+C:\Users\dball\source\repos\DrugProductDatabase\DrugProductDatabase\obj\Debug\net5.0\DrugProductDatabase.dll
+C:\Users\dball\source\repos\DrugProductDatabase\DrugProductDatabase\obj\Debug\net5.0\ref\DrugProductDatabase.dll
+C:\Users\dball\source\repos\DrugProductDatabase\DrugProductDatabase\obj\Debug\net5.0\DrugProductDatabase.pdb
