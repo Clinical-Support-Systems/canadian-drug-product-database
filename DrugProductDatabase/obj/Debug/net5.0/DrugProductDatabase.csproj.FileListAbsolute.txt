@@ -10,3 +10,15 @@ C:\Users\dball\source\repos\DrugProductDatabase\DrugProductDatabase\obj\Debug\ne
 C:\Users\dball\source\repos\DrugProductDatabase\DrugProductDatabase\obj\Debug\net5.0\DrugProductDatabase.dll
 C:\Users\dball\source\repos\DrugProductDatabase\DrugProductDatabase\obj\Debug\net5.0\ref\DrugProductDatabase.dll
 C:\Users\dball\source\repos\DrugProductDatabase\DrugProductDatabase\obj\Debug\net5.0\DrugProductDatabase.pdb
+C:\Users\dball\Source\Repos\Clinical-Support-Systems\Canadian-Drug-Product-Database\DrugProductDatabase\bin\Debug\net5.0\DrugProductDatabase.deps.json
+C:\Users\dball\Source\Repos\Clinical-Support-Systems\Canadian-Drug-Product-Database\DrugProductDatabase\bin\Debug\net5.0\DrugProductDatabase.dll
+C:\Users\dball\Source\Repos\Clinical-Support-Systems\Canadian-Drug-Product-Database\DrugProductDatabase\bin\Debug\net5.0\ref\DrugProductDatabase.dll
+C:\Users\dball\Source\Repos\Clinical-Support-Systems\Canadian-Drug-Product-Database\DrugProductDatabase\bin\Debug\net5.0\DrugProductDatabase.pdb
+C:\Users\dball\Source\Repos\Clinical-Support-Systems\Canadian-Drug-Product-Database\DrugProductDatabase\obj\Debug\net5.0\DrugProductDatabase.csproj.AssemblyReference.cache
+C:\Users\dball\Source\Repos\Clinical-Support-Systems\Canadian-Drug-Product-Database\DrugProductDatabase\obj\Debug\net5.0\DrugProductDatabase.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dball\Source\Repos\Clinical-Support-Systems\Canadian-Drug-Product-Database\DrugProductDatabase\obj\Debug\net5.0\DrugProductDatabase.AssemblyInfoInputs.cache
+C:\Users\dball\Source\Repos\Clinical-Support-Systems\Canadian-Drug-Product-Database\DrugProductDatabase\obj\Debug\net5.0\DrugProductDatabase.AssemblyInfo.cs
+C:\Users\dball\Source\Repos\Clinical-Support-Systems\Canadian-Drug-Product-Database\DrugProductDatabase\obj\Debug\net5.0\DrugProductDatabase.csproj.CoreCompileInputs.cache
+C:\Users\dball\Source\Repos\Clinical-Support-Systems\Canadian-Drug-Product-Database\DrugProductDatabase\obj\Debug\net5.0\DrugProductDatabase.dll
+C:\Users\dball\Source\Repos\Clinical-Support-Systems\Canadian-Drug-Product-Database\DrugProductDatabase\obj\Debug\net5.0\ref\DrugProductDatabase.dll
+C:\Users\dball\Source\Repos\Clinical-Support-Systems\Canadian-Drug-Product-Database\DrugProductDatabase\obj\Debug\net5.0\DrugProductDatabase.pdb

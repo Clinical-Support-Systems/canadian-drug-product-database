@@ -24,26 +24,27 @@ namespace DrugProductDatabase
         private const string classRequest = "api/drug/therapeuticclass?id=";
 
         #region Get Product
-        public static async Task<DrugProduct> GetDrugProduct(string din, CancellationToken cancellationToken = default)
+
+        public static async Task<DrugProduct> GetDrugProduct(string din, bool includeDetails = true, CancellationToken cancellationToken = default)
         {
             var requestString = $"{productRequestDin}{din}";
             var result = await RequestData<DrugProduct>(requestString, cancellationToken).ConfigureAwait(false);
             var product = result.FirstOrDefault();
 
-            if (product != null)
+            if (includeDetails && product != null)
             {
                 await GetAdditionProductInfo(product).ConfigureAwait(false);
             }
             return product;
         }
 
-        public static async Task<DrugProduct> GetDrugProduct(int drugCode, CancellationToken cancellationToken = default)
+        public static async Task<DrugProduct> GetDrugProduct(int drugCode, bool includeDetails = true, CancellationToken cancellationToken = default)
         {
             var requestString = $"{productRequestCode}{drugCode}";
             var result = await RequestData<DrugProduct>(requestString, cancellationToken).ConfigureAwait(false);
             var product = result.FirstOrDefault();
 
-            if (product != null)
+            if (includeDetails && product != null)
             {
                 await GetAdditionProductInfo(product).ConfigureAwait(false);
             }
