@@ -18,19 +18,19 @@ namespace DrugProductDatabaseClient.Tests
         {
             var result = await DrugProductRequest.GetCompanyAsync(12902);
 
+            Output.WriteLine(await GetJsonAsync(result));
+
             result.ShouldNotBeNull();
             result.company_name.ShouldBe("BAYER HEALTHCARE LLC");
             result.company_type.ShouldBe("DIN OWNER");
             result.country_name.ShouldBe("United States");
-            result.post_office_box.ShouldBeEmpty();
-            result.postal_code.ShouldNotBeEmpty();
-            result.province_name.ShouldNotBeEmpty();
-            result.street_name.ShouldNotBeEmpty();
-            result.city_name.ShouldNotBeEmpty();
-            result.suite_number.ShouldBeEmpty();
+            result.post_office_box.ShouldBeNullOrEmpty();
+            result.postal_code.ShouldNotBeNullOrEmpty();
+            result.province_name.ShouldNotBeNullOrEmpty();
+            result.street_name.ShouldNotBeNullOrEmpty();
+            result.city_name.ShouldNotBeNullOrEmpty();
+            result.suite_number.ShouldBeNullOrEmpty();
             result.company_code.ShouldBe(12902);
-
-            Output.WriteLine(await GetJsonAsync(result));
         }
     }
 }

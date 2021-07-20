@@ -18,13 +18,13 @@ namespace DrugProductDatabaseClient.Tests
         {
             var result = await DrugProductRequest.GetDosageFormsAsync(4292);
 
+            Output.WriteLine(await GetJsonAsync(result));
+
             result.ShouldNotBeNull();
             result.ShouldHaveSingleItem();
             result[0].drug_code.ShouldBe(4292);
             result[0].pharmaceutical_form_code.ShouldBe(134);
             result[0].pharmaceutical_form_name.ShouldNotBeEmpty();
-
-            Output.WriteLine(await GetJsonAsync(result));
         }
     }
 }

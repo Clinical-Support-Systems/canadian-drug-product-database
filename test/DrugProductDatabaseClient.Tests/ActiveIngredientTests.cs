@@ -14,12 +14,14 @@ namespace DrugProductDatabaseClient.Tests
         }
 
         [Fact]
-        public async Task Test1()
+        public async Task Can_Get_ActiveIngredients()
         {
-            var drugProduct = await DrugProductRequest.GetDrugProduct(din: "02313782");
-            drugProduct.ShouldNotBeNull();
+            var results = await DrugProductRequest.GetActiveIngredientsAsync(50446);
 
-            Output.WriteLine(await GetJsonAsync(drugProduct));
+            Output.WriteLine(await GetJsonAsync(results));
+
+            results.ShouldNotBeNull();
+            results.Count.ShouldBe(2);
         }
     }
 }

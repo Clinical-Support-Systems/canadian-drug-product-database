@@ -14,10 +14,19 @@ namespace DrugProductDatabaseClient.Tests
         }
 
         [Fact]
-        public async Task Test1()
+        public async Task Can_Get_TherapeuticClasses()
         {
-            var drugProduct = await DrugProductRequest.GetDrugProduct(din: "02313782");
-            drugProduct.ShouldNotBeNull();
+            var result = await DrugProductRequest.GetTherapeuticClassesAsync(7397);
+
+            Output.WriteLine(await GetJsonAsync(result));
+
+            result.ShouldNotBeNull();
+            result.ShouldHaveSingleItem();
+            result[0].drug_code.ShouldBe(7397);
+            result[0].tc_atc_number.ShouldNotBeNullOrEmpty();
+            result[0].tc_atc.ShouldNotBeNullOrEmpty();
+            result[0].tc_ahfs_number.ShouldNotBeNullOrEmpty();
+            result[0].tc_ahfs.ShouldNotBeNullOrEmpty();
         }
     }
 }

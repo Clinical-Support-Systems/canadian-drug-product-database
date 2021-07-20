@@ -14,10 +14,20 @@ namespace DrugProductDatabaseClient.Tests
         }
 
         [Fact]
-        public async Task Test1()
+        public async Task Can_Get_RouteOfAdministration()
         {
-            var drugProduct = await DrugProductRequest.GetDrugProduct(din: "02313782");
-            drugProduct.ShouldNotBeNull();
+            var result = await DrugProductRequest.GetRoutesOfAdministrationAsync(3790);
+
+            Output.WriteLine(await GetJsonAsync(result));
+
+            result.ShouldNotBeNull();
+            result.Count.ShouldBe(2);
+            result[0].drug_code.ShouldBe(3790);
+            result[0].route_of_administration_code.ShouldBe(9);
+            result[0].route_of_administration_name.ShouldNotBeNullOrEmpty();
+            result[1].drug_code.ShouldBe(3790);
+            result[1].route_of_administration_code.ShouldBe(8);
+            result[1].route_of_administration_name.ShouldNotBeNullOrEmpty();
         }
     }
 }

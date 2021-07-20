@@ -14,10 +14,17 @@ namespace DrugProductDatabaseClient.Tests
         }
 
         [Fact]
-        public async Task Test1()
+        public async Task Can_Get_PharmaceuticalStandard()
         {
-            var drugProduct = await DrugProductRequest.GetDrugProduct(din: "02313782");
-            drugProduct.ShouldNotBeNull();
+            // https://health-products.canada.ca/api/drug/pharmaceuticalstd/?type=json&id=3446
+
+            var result = await DrugProductRequest.GetPharmaceuticalStandardAsync(3446);
+
+            Output.WriteLine(await GetJsonAsync(result));
+
+            result.ShouldNotBeNull();
+            result.drug_code.ShouldBe(3446);
+            result.pharmaceutical_std.ShouldNotBeNullOrEmpty();
         }
     }
 }

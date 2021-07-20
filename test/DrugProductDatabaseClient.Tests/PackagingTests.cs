@@ -14,10 +14,20 @@ namespace DrugProductDatabaseClient.Tests
         }
 
         [Fact]
-        public async Task Test1()
+        public async Task Can_Get_Packaging()
         {
-            var drugProduct = await DrugProductRequest.GetDrugProduct(din: "02313782");
-            drugProduct.ShouldNotBeNull();
+            var result = await DrugProductRequest.GetPackagingAsync(37475);
+
+            Output.WriteLine(await GetJsonAsync(result));
+
+            result.ShouldNotBeNull();
+            result.ShouldHaveSingleItem();
+            result[0].drug_code.ShouldBe(37475);
+            result[0].upc.ShouldNotBeNullOrEmpty();
+            result[0].package_size_unit.ShouldNotBeNullOrEmpty();
+            result[0].package_type.ShouldNotBeNullOrEmpty();
+            result[0].package_size.ShouldNotBeNullOrEmpty();
+            result[0].product_information.ShouldBeEmpty();
         }
     }
 }
