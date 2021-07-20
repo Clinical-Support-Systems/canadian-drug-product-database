@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DrugProductDatabase\DrugProductDatabase.csproj" />
+    <ProjectReference Include="..\..\src\DrugProductDatabase\DrugProductDatabase.csproj" />
   </ItemGroup>
 
 </Project>
