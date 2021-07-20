@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Dave Ball</Authors>
+    <Company>Clinical Support Systems</Company>
+    <Description>.NET API Client for https://health-products.canada.ca/api/documentation/dpd-documentation-en.html</Description>
+    <PackageProjectUrl>https://github.com/Clinical-Support-Systems/canadian-drug-product-database</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Clinical-Support-Systems/canadian-drug-product-database</RepositoryUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
