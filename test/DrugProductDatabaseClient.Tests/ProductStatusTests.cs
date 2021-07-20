@@ -3,11 +3,16 @@ using System;
 using System.Threading.Tasks;
 using Xunit;
 using Shouldly;
+using Xunit.Abstractions;
 
 namespace DrugProductDatabaseClient.Tests
 {
-    public class ProductStatusTests
+    public class ProductStatusTests : TestBase
     {
+        public ProductStatusTests(ITestOutputHelper output) : base(output)
+        {
+        }
+
         [Fact]
         public async Task Test1()
         {
