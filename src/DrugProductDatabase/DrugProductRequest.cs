@@ -144,6 +144,7 @@ namespace DrugProductDatabase
 
         private static async Task<List<T>> RequestData<T>(string requestString, CancellationToken cancellationToken = default, bool isList = true)
         {
+            cancellationToken.ThrowIfCancellationRequested();
             try
             {
                 var client = new RestClient(baseUrl);
