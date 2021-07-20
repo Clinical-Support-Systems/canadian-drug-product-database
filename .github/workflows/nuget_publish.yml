@@ -15,12 +15,19 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
+
+    - uses: dotnet/nbgv@master
+      with:
+        setAllVars: true
+
     - name: Restore dependencies
       run: dotnet restore
+
     - name: Build
       run: dotnet build --no-restore
     - name: Test
@@ -28,6 +35,6 @@ jobs:
     - name: Publish
       run: | # | character makes the "run" property multi-line, so we can put multiple commands in the same step
         mkdir __out
-        dotnet pack -c Release -o __out --no-restore
+        dotnet pack -c Release -o __out --no-restore -p:RepositoryBranch=master -p:ContinuousIntegrationBuild=true /p:PublicRelease=true
         dotnet nuget push "./__out/*.nupkg" --skip-duplicate --no-symbols true --api-key ${{secrets.NUGET_TOKEN}}
         rm -rf __out

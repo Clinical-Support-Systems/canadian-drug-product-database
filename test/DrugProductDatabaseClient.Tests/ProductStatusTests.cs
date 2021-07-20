@@ -13,7 +13,7 @@ namespace DrugProductDatabaseClient.Tests
         {
         }
 
-        //[Fact]
+        [Fact]
         public async Task Can_Get_ProductStatus()
         {
             // https://health-products.canada.ca/api/drug/status/?lang=en&type=json&id=11743
