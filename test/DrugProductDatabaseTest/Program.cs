@@ -1,5 +1,7 @@
 ﻿using DrugProductDatabase;
 using System;
+using System.IO;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -21,9 +23,23 @@ namespace DrugProductDatabaseTest
                     e.Cancel = true;
                 };
 
+                async Task<string> GetJsonAsync(object obj, JsonSerializerOptions jsonSerializerOptions = null, CancellationToken ct = default)
+                {
+                    ct.ThrowIfCancellationRequested();
+                    using var stream = new MemoryStream();
+                    await JsonSerializer.SerializeAsync(stream, obj, obj.GetType(), jsonSerializerOptions ?? new JsonSerializerOptions() { WriteIndented = true }, ct).ConfigureAwait(false);
+                    stream.Position = 0;
+                    using var reader = new StreamReader(stream);
+                    return await reader.ReadToEndAsync().ConfigureAwait(false);
+                }
+
                 var drugProduct = await DrugProductRequest.GetDrugProduct(din: "02313782", cancellationToken: cts.Token).ConfigureAwait(false);
 
+                await Console.Out.WriteLineAsync(await GetJsonAsync(drugProduct));
+
                 var drugProduct2 = await DrugProductRequest.GetDrugProduct(drugCode: 11685, cancellationToken: cts.Token).ConfigureAwait(false);
+
+                await Console.Out.WriteLineAsync(await GetJsonAsync(drugProduct2));
 
                 await Console.Out.WriteLineAsync("Done!");
             }
