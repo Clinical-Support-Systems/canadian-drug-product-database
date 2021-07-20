@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrugProductDatabase", "src\DrugProductDatabase\DrugProductDatabase.csproj", "{871A112C-516A-4DAB-9C48-501B43263E97}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrugProductDatabaseTest", "test\DrugProductDatabaseTest\DrugProductDatabaseTest.csproj", "{900BA87F-4E29-46E2-AC81-710028502719}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrugProductDatabaseConsoleApp", "test\DrugProductDatabaseTest\DrugProductDatabaseConsoleApp.csproj", "{900BA87F-4E29-46E2-AC81-710028502719}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrugProductDatabaseClient.Tests", "test\DrugProductDatabaseClient.Tests\DrugProductDatabaseClient.Tests.csproj", "{8E0D5156-5FAF-426F-9221-CA31E6A49A03}"
 EndProject
