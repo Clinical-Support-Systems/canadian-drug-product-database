@@ -19,7 +19,6 @@ namespace DrugProductDatabase
         public string company_name { get; set; }
         public DateTime? last_update_date { get; set; }
 
-        public Company company { get; set; }
         public PharmaceuticalStandard pharmaceutical_standard { get; set; }
         public ProductStatus product_status { get; set; }
 

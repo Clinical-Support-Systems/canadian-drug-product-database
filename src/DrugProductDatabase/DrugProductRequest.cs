@@ -55,8 +55,6 @@ namespace DrugProductDatabase
         {
             // get active ingredients
             product.active_ingredients = await GetActiveIngredientsAsync(product.drug_code, ct).ConfigureAwait(false);
-            // get company
-            //product.company = await GetCompanyAsync(product.drug_code, ct).ConfigureAwait(false);
             // get the dosage form
             product.dosage_forms = await GetDosageFormsAsync(product.drug_code, ct).ConfigureAwait(false);
             // get the packaging
@@ -146,17 +144,38 @@ namespace DrugProductDatabase
 
         private static async Task<List<T>> RequestData<T>(string requestString, CancellationToken cancellationToken = default, bool isList = true)
         {
-            var client = new RestClient(baseUrl);
-            var request = new RestRequest(requestString);
-            if (isList)
+            try
             {
-                var result = await client.ExecuteGetAsync<List<T>>(request, cancellationToken).ConfigureAwait(false);
-                return result.Data;
+                var client = new RestClient(baseUrl);
+                var request = new RestRequest(requestString);
+                if (isList)
+                {
+                    var result = await client.ExecuteGetAsync<List<T>>(request, cancellationToken).ConfigureAwait(false);
+                    if (result.IsSuccessful && result.Data != null)
+                    {
+                        return result.Data;
+                    }
+                    else
+                    {
+                        throw new DrugProductRequestException($"The request to the Drug Product Database was not successful. The status code returned was {result.StatusCode}");
+                    }
+                }
+                else
+                {
+                    var result = await client.ExecuteGetAsync<T>(request, cancellationToken).ConfigureAwait(false);
+                    if (result.IsSuccessful && result.Data != null)
+                    {
+                        return new List<T>(new T[] { result.Data });
+                    }
+                    else
+                    {
+                        throw new DrugProductRequestException($"The request to the Drug Product Database was not successful. The status code returned was {result.StatusCode}");
+                    }
+                }
             }
-            else
+            catch (Exception ex)
             {
-                var result = await client.ExecuteGetAsync<T>(request, cancellationToken).ConfigureAwait(false);
-                return new List<T>(new T[] { result.Data });
+                throw new DrugProductRequestException("The request to the Drug Product Database failed with an exception.", ex);
             }
         }
 
