@@ -7,12 +7,13 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
-
+  build-test:
+    name: Build and test
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout Repository
+      uses: actions/checkout@v2
       with:
         fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
 
@@ -30,11 +31,13 @@ jobs:
 
     - name: Build
       run: dotnet build --no-restore
+
     - name: Test
       run: dotnet test --no-build --verbosity normal
+
     - name: Publish
       run: | # | character makes the "run" property multi-line, so we can put multiple commands in the same step
         mkdir __out
-        dotnet pack -c Release -o __out --no-restore -p:RepositoryBranch=master -p:ContinuousIntegrationBuild=true /p:PublicRelease=true
-        dotnet nuget push -s "./__out/*.nupkg" --skip-duplicate --no-symbols true --api-key ${{secrets.NUGET_TOKEN}}
-        rm -rf __out
+        dotnet pack -c Release -o ${GITHUB_WORKSPACE}/packages --no-restore -p:RepositoryBranch=main -p:ContinuousIntegrationBuild=true /p:PublicRelease=true
+        dotnet nuget push ${GITHUB_WORKSPACE}/packages/'*.nupkg' -s https://api.nuget.org/v3/index.json --skip-duplicate --no-symbols true --api-key ${{secrets.NUGET_TOKEN}}
+  
