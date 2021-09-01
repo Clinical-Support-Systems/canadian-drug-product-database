@@ -7,8 +7,8 @@
     <img src="https://github.com/Clinical-Support-Systems/canadian-drug-product-database/actions/workflows/nuget_publish.yml/badge.svg" alt="Sublime's custom image"/>
   </a>
   <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/Clinical-Support-Systems/oneid-oauth-middleware/CI">
-<img alt="Nuget" src="https://img.shields.io/nuget/dt/DrugProductDatabase">
-  <img alt="Nuget Version" src="https://img.shields.io/nuget/v/DrugProductDatabase">
+  <a href="https://www.nuget.org/packages/DrugProductDatabase/" target="_blank" alt="DrugProductDatabase at NuGet"><img alt="Nuget" src="https://img.shields.io/nuget/dt/DrugProductDatabase"></a>
+  <a href="https://www.nuget.org/packages/DrugProductDatabase/" target="_blank" alt="DrugProductDatabase at NuGet"><img alt="Nuget Version" src="https://img.shields.io/nuget/v/DrugProductDatabase"></a>
 </p>
 
 <p align="center">
