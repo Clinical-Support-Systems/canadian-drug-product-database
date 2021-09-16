@@ -14,6 +14,19 @@ namespace DrugProductDatabaseClient.Tests
     {
         public DrugProductTests(ITestOutputHelper output) : base(output)
         {
+            //https://health-products.canada.ca/api/drug/drugproduct/?lang=en&type=json&din=02510014
+        }
+
+        [Fact]
+        public async Task Can_Get_Spikevax()
+        {
+            var din = "02510014";
+            var result = await DrugProductRequest.GetDrugProduct(din: din);
+
+            Output.WriteLine(await GetJsonAsync(result));
+
+            result.ShouldNotBeNull();
+            result.drug_identification_number.ShouldBe(din);
         }
 
         [Fact]

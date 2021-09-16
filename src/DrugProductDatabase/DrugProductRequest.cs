@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -152,25 +153,27 @@ namespace DrugProductDatabase
                 if (isList)
                 {
                     var result = await client.ExecuteGetAsync<List<T>>(request, cancellationToken).ConfigureAwait(false);
-                    if (result.IsSuccessful && result.Data != null)
+                    if (result.IsSuccessful() && result.Data != null)
                     {
                         return result.Data;
                     }
                     else
                     {
-                        throw new DrugProductRequestException($"The request to the Drug Product Database was not successful. The status code returned was {result.StatusCode}");
+                        return new List<T>();
+                        //throw new DrugProductRequestException($"The request to the Drug Product Database was not successful. The status code returned was {result.StatusCode}");
                     }
                 }
                 else
                 {
                     var result = await client.ExecuteGetAsync<T>(request, cancellationToken).ConfigureAwait(false);
-                    if (result.IsSuccessful && result.Data != null)
+                    if (result.IsSuccessful() && result.Data != null)
                     {
                         return new List<T>(new T[] { result.Data });
                     }
                     else
                     {
-                        throw new DrugProductRequestException($"The request to the Drug Product Database was not successful. The status code returned was {result.StatusCode}");
+                        return new List<T>();
+                        //throw new DrugProductRequestException($"The request to the Drug Product Database was not successful. The status code returned was {result.StatusCode}");
                     }
                 }
             }
@@ -179,6 +182,20 @@ namespace DrugProductDatabase
                 throw new DrugProductRequestException("The request to the Drug Product Database failed with an exception.", ex);
             }
         }
+
+        public static bool IsSuccessful(this IRestResponse response)
+        {
+            return response.StatusCode.IsSuccessStatusCode()
+                && response.ResponseStatus == ResponseStatus.Completed;
+        }
+
+        public static bool IsSuccessStatusCode(this HttpStatusCode responseCode)
+        {
+            int numericResponse = (int)responseCode;
+            return numericResponse >= 200
+                && numericResponse <= 399;
+        }
+
 
         #endregion Generic JSON Request
     }
